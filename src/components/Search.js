@@ -1,10 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const Search = (props) => {
-    const { value, onChange } = props
+import { fetchMovies } from '../store/actions'
+
+const Search = ({ fetchMovies }) => {
+    const [formValue, setFormValue] = useState('')
+
+    useEffect(() => {
+        fetchMovies(formValue)
+    }, [fetchMovies, formValue])
+
+    const onChange = evt => {
+        // evt.preventDefault() // do I need this since I'm not submitting the form???
+        
+        const value = evt.target.value
+        setFormValue(value)
+    }
+
+    const onSubmit = evt => {
+        evt.preventDefault()
+    }
 
     return (
-        <form id="searchForm">
+        <form 
+            id="searchForm"
+            onSubmit={onSubmit}
+        >
             <label htmlFor="searchId" />
             <input
                 type="text"
@@ -12,10 +33,10 @@ const Search = (props) => {
                 name="Movie title"
                 placeholder="Title..."
                 onChange={onChange}
-                value={value}
+                value={formValue}
             />
         </form>
     )
 }
 
-export default Search
+export default connect(null, { fetchMovies })(Search)
