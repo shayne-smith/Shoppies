@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 
+import Results from './Results'
+
 import { fetchMovies } from '../store/actions'
 
 const Search = ({ fetchMovies }) => {
@@ -22,20 +24,24 @@ const Search = ({ fetchMovies }) => {
     }
 
     return (
-        <form 
-            id="searchForm"
-            onSubmit={onSubmit}
-        >
-            <label htmlFor="searchId" />
-            <input
-                type="text"
-                id="searchId"
-                name="Movie title"
-                placeholder="Title..."
-                onChange={onChange}
-                value={formValue}
-            />
-        </form>
+        <div>
+           <form 
+                id="searchForm"
+                onSubmit={onSubmit}
+            >
+                <label htmlFor="searchId" />
+                <input
+                    type="text"
+                    id="searchId"
+                    name="Movie title"
+                    placeholder="Title..."
+                    onChange={onChange}
+                    value={formValue}
+                />
+            </form>
+            <Results formValue={formValue} /> 
+        </div>
+        
     )
 }
 
