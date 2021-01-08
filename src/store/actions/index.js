@@ -3,8 +3,12 @@ import axios from 'axios'
 // export constants to reduce syntax errors
 export const FETCH_MOVIES_START = 'FETCH_MOVIES_START'
 export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS'
+
 export const ADD_NOMINATION = 'ADD_NOMINATION'
 export const REMOVE_NOMINATION = 'REMOVE_NOMINATION'
+
+export const SHOW_BANNER = 'SHOW_BANNER'
+export const REMOVE_BANNER = 'REMOVE_BANNER'
 
 // local constants
 const URL = 'http://www.omdbapi.com/?'
@@ -36,6 +40,18 @@ export const addNomination = (nomination) => {
 export const removeNomination = (nomination) => {
     return dispatch => {
         dispatch({ type: REMOVE_NOMINATION, payload: nomination })
+    }
+}
+
+export const showBanner = () => {
+    return dispatch => {
+        dispatch({ type: SHOW_BANNER })
+    }
+}
+
+export const removeBanner = () => {
+    return dispatch => {
+        dispatch({ type: REMOVE_BANNER })
     }
 }
 
