@@ -5,7 +5,7 @@ import {
 
 const initialState = {
     isFetching: false,
-    results: []
+    resultsList: []
 }
 
 export const resultsReducer = (state = initialState, action) => {
@@ -19,7 +19,7 @@ export const resultsReducer = (state = initialState, action) => {
             return {
                 ...state,
                 isFetching: false,
-                results: [...state.results, action.payload]
+                resultsList: action.payload.Search
             }
         default:
             return state

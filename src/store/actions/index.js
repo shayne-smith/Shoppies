@@ -3,6 +3,8 @@ import axios from 'axios'
 // export constants to reduce syntax errors
 export const FETCH_MOVIES_START = 'FETCH_MOVIES_START'
 export const FETCH_MOVIES_SUCCESS = 'FETCH_MOVIES_SUCCESS'
+export const ADD_NOMINATION = 'ADD_NOMINATION'
+export const REMOVE_NOMINATION = 'REMOVE_NOMINATION'
 
 // local constants
 const URL = 'http://www.omdbapi.com/?'
@@ -18,9 +20,22 @@ export const fetchMovies = (formValue) => {
         axios
             .get(URL + 's=' + formValue + '&apikey=' + API_KEY)
             .then(res => {
-                dispatch({ type: FETCH_MOVIES_SUCCESS })
+                console.log(res.data)
+                dispatch({ type: FETCH_MOVIES_SUCCESS, payload: res.data })
             })
             .catch(err => console.log(err))
+    }
+}
+
+export const addNomination = (nomination) => {
+    return dispatch => {
+        dispatch({ type: ADD_NOMINATION, payload: nomination })
+    }
+}
+
+export const removeNomination = (nomination) => {
+    return dispatch => {
+        dispatch({ type: REMOVE_NOMINATION, payload: nomination })
     }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import Search from './components/Search'
+import Nominations from './components/Nominations'
 import './App.css'
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
       </header>
       <div>
         <Search />
+        <Nominations />
       </div>
     </div>
   )
