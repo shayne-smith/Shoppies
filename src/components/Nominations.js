@@ -4,9 +4,9 @@ import { removeBanner, removeNomination } from '../store/actions'
 
 const Nominations = ({ nominationsList, removeBanner, removeNomination }) => {
     return (
-        <div>
-            <h2>Nominations</h2>
-            <ul>
+        <div id='nominations'>
+            <h3>Nominations</h3>
+            <ul id='nominationsList' >
                 {nominationsList.map((nomination, index) => {
                     return (
                         <li key={index}>{nomination.Title} ({nomination.Year}) <button onClick={() => {
