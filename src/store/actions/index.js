@@ -10,6 +10,8 @@ export const REMOVE_NOMINATION = 'REMOVE_NOMINATION'
 export const SHOW_BANNER = 'SHOW_BANNER'
 export const REMOVE_BANNER = 'REMOVE_BANNER'
 
+export const UPDATE_CURRENT_SEARCH = 'UPDATE_CURRENT_SEARCH'
+
 // local constants
 const URL = 'http://www.omdbapi.com/?'
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY
@@ -52,6 +54,12 @@ export const showBanner = () => {
 export const removeBanner = () => {
     return dispatch => {
         dispatch({ type: REMOVE_BANNER })
+    }
+}
+
+export const updateCurrentSearch = (currentSearch) => {
+    return dispatch => {
+        dispatch({ type: UPDATE_CURRENT_SEARCH, payload: currentSearch })
     }
 }
 
