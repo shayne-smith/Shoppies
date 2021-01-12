@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
+import { SearchOutlined } from '@ant-design/icons'
 
-import Results from './Results'
+import { fetchMovies, updateCurrentSearch } from '../store/actions'
 
-import { fetchMovies } from '../store/actions'
-
-const Search = ({ fetchMovies }) => {
+const Search = ({ fetchMovies, updateCurrentSearch }) => {
     const [formValue, setFormValue] = useState('')
 
     useEffect(() => {
@@ -13,10 +12,9 @@ const Search = ({ fetchMovies }) => {
     }, [fetchMovies, formValue])
 
     const onChange = evt => {
-        // evt.preventDefault() // do I need this since I'm not submitting the form???
-        
         const value = evt.target.value
         setFormValue(value)
+        updateCurrentSearch(value)
     }
 
     const onSubmit = evt => {
@@ -24,25 +22,24 @@ const Search = ({ fetchMovies }) => {
     }
 
     return (
-        <div>
+        <div id='search'>
+            <h3>Movie Title</h3>
            <form 
                 id="searchForm"
                 onSubmit={onSubmit}
             >
-                <label htmlFor="searchId" />
+                <label htmlFor="searchBar" />
                 <input
                     type="text"
-                    id="searchId"
+                    id="searchBar"
                     name="Movie title"
                     placeholder="Title..."
                     onChange={onChange}
                     value={formValue}
                 />
             </form>
-            <Results formValue={formValue} /> 
-        </div>
-        
+        </div>   
     )
 }
 
-export default connect(null, { fetchMovies })(Search)
+export default connect(null, { fetchMovies, updateCurrentSearch })(Search)

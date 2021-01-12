@@ -4,18 +4,23 @@ import Banner from './components/Banner'
 import Search from './components/Search'
 import Nominations from './components/Nominations'
 import './App.css'
+import Results from './components/Results'
 
 function App({ showBanner }) {
 
   return (
-    <div className="App">
+    <div className="app">
       {showBanner && <Banner />}
-      <header className="App-header">
-        The Shoppies
+      <header className="app-header">
+        <h1>The Shoppies</h1>
       </header>
-      <div>
+      <div className='container'>
         <Search />
-        <Nominations />
+        <div className='resultsContainer'>
+          <Results /> 
+          <Nominations />
+        </div>
+        
       </div>
     </div>
   )

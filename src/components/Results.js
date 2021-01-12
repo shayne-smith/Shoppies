@@ -3,12 +3,12 @@ import { connect } from 'react-redux'
 import { addNomination, showBanner } from '../store/actions'
 
 const Results = (props) => {
-    const { formValue, resultsList, nominationsList, addNomination, showBanner } = props
+    const { currentSearch, resultsList, nominationsList, addNomination, showBanner } = props
 
     return (
-        <div>
-            <h2>Results for "{formValue}"</h2>
-            <ul>
+        <div id='results' className='shadow'>
+            <h3>Results for "{currentSearch}"</h3>
+            <ul id='resultsList' >
                 {resultsList && resultsList.map((movie, index) => (
                     <li key={index} >{movie.Title} ({movie.Year}) <button onClick={() => {
                         if (nominationsList.length < 4) {
@@ -27,6 +27,7 @@ const Results = (props) => {
 const mapStateToProps = state => {
     return {
         resultsList: state.results.resultsList,
+        currentSearch: state.results.currentSearch,
         nominationsList: state.nominations.nominationsList
     }
 }

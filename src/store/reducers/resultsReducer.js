@@ -1,11 +1,13 @@
 import { 
     FETCH_MOVIES_START,
-    FETCH_MOVIES_SUCCESS
+    FETCH_MOVIES_SUCCESS,
+    UPDATE_CURRENT_SEARCH
 } from '../actions'
 
 const initialState = {
     isFetching: false,
-    resultsList: []
+    resultsList: [],
+    currentSearch: ''
 }
 
 export const resultsReducer = (state = initialState, action) => {
@@ -20,6 +22,11 @@ export const resultsReducer = (state = initialState, action) => {
                 ...state,
                 isFetching: false,
                 resultsList: action.payload.Search
+            }
+        case UPDATE_CURRENT_SEARCH:
+            return {
+                ...state,
+                currentSearch: action.payload
             }
         default:
             return state
