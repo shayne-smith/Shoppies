@@ -1,3 +1,4 @@
+/* APPLICATION STYLING */
 .app {
   text-align: center;
   background-color: #e5e5e5;
@@ -5,18 +6,17 @@
   display: flex;
   flex-direction: column;
 }
-
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
 }
-
 * {
   box-sizing: border-box;
 }
 
+/* HEADER STYLING */
 .app-header {
   background-color: #282c34;
   min-height: 100px;
@@ -28,6 +28,7 @@
   color: white;
 }
 
+/* BANNER STYLING */
 #banner {
   display: flex;
   justify-content: center;
@@ -37,12 +38,10 @@
   top: 0;
   z-index: 10;background-color: #ffffff;
 }
-
 #bannerText {
   vertical-align: middle;
   line-height: 17px;
 }
-
 #bannerClose {
   display: flex;
   justify-content: center;
@@ -50,24 +49,28 @@
   margin: 0 10px;
 }
 
-.boxShadow {
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
-  box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
-}
-
-#search {
+/* SEARCH BAR STYLING */
+#searchContainer {
   width: 800px;
   padding: 10px;
   margin: 15px auto;
   border-radius: 6px;
   background-color: #ffffff;
+  position: relative;
 }
-#search h3 {
+#searchContainer h3 {
   text-align: left;
   margin-left: 38px;
 }
-
+#searchContainer input {
+  text-indent: 25px;
+}
+.search .fa-search {
+  position: absolute;
+  top: 94px;
+  left: 60px;
+  font-size: 15px;
+}
 #searchBar {
   width: 90%;
   margin: 10px;
@@ -75,12 +78,12 @@
   padding: 8px;
 }
 
+/* RESULTS COMPONENT STYLING */
 .resultsContainer {
   display: flex;
   justify-content: space-between;
   width: 800px;
 }
-
 #results {
   background-color: #ffffff;
   width: 48%;
@@ -95,11 +98,13 @@
 }
 #resultsList li {
   margin: 5px 0;
+  text-align: left;
 }
 button:hover {
   cursor: pointer;
 }
 
+/* NOMINATIONS COMPONENT STYLING */
 #nominations {
   background-color: #ffffff;
   width: 48%;
@@ -114,4 +119,12 @@ button:hover {
 }
 #nominationsList li {
   margin: 5px 0;
+  text-align: left;
+}
+
+/* MISCELLANEOUS STYLING */
+.boxShadow {
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;  /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  -moz-box-shadow:    3px 3px 5px 6px #ccc;  /* Firefox 3.5 - 3.6 */
+  box-shadow:         3px 3px 5px 6px #ccc;  /* Opera 10.5, IE 9, Firefox 4+, Chrome 6+, iOS 5 */
 }

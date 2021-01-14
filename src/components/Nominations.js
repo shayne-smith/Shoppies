@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { removeBanner, removeNomination } from '../store/actions'
 
 const Nominations = ({ nominationsList, removeBanner, removeNomination }) => {
+
     return (
         <div id='nominations'>
             <h3>Nominations</h3>

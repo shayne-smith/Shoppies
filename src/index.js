@@ -6,10 +6,22 @@ import logger from 'redux-logger'
 import thunk from 'redux-thunk'
 import './index.css'
 import App from './App'
+import { loadState, saveState } from './localStorage'
 import reducer from './store/reducers'
 import reportWebVitals from './reportWebVitals'
 
-const store = createStore(reducer, applyMiddleware(thunk, logger))
+const persistedState = loadState()
+const store = createStore(
+  reducer,
+  persistedState,
+  applyMiddleware(thunk, logger)
+)
+
+store.subscribe(() => {
+  saveState({
+    nominations: store.getState().nominations
+  })
+})
 
 ReactDOM.render(
   <React.StrictMode>

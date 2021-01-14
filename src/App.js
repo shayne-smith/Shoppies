@@ -19,8 +19,7 @@ function App({ showBanner }) {
         <div className='resultsContainer'>
           <Results /> 
           <Nominations />
-        </div>
-        
+        </div>      
       </div>
     </div>
   )
