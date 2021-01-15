@@ -24,10 +24,10 @@ const Search = ({ fetchMovies, updateCurrentSearch }) => {
     return (
         <div id='searchContainer'>
             <h3>Movie Title</h3>
-           <form 
-                id="searchForm"
-                onSubmit={onSubmit}
-            >
+            <form 
+                    id="searchForm"
+                    onSubmit={onSubmit}
+                >
                 <div className='search'>
                     <SearchOutlined className='fa-search' />
                     <input
