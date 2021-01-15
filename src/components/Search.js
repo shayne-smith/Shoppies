@@ -29,7 +29,7 @@ const Search = ({ fetchMovies, updateCurrentSearch }) => {
                 onSubmit={onSubmit}
             >
                 <div className='search'>
-                    <SearchOutlined className='fa fa-search' />
+                    <SearchOutlined className='fa-search' />
                     <input
                         type="text"
                         id="searchBar"
@@ -39,7 +39,6 @@ const Search = ({ fetchMovies, updateCurrentSearch }) => {
                         value={formValue}
                     />
                 </div>
-                
             </form>
         </div>   
     )
