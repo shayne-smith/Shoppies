@@ -13,7 +13,7 @@ export const REMOVE_BANNER = 'REMOVE_BANNER'
 export const UPDATE_CURRENT_SEARCH = 'UPDATE_CURRENT_SEARCH'
 
 // local constants
-const URL = 'http://www.omdbapi.com/?'
+const URL = 'https://www.omdbapi.com/?'
 const API_KEY = process.env.REACT_APP_OMDB_API_KEY
 
 // make an async request
